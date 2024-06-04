@@ -1,3 +1,4 @@
+# Maintainer: justbispo <aur.fyxy0@slmail.me>
 # Maintainer: George Rawlinson <grawlinson@archlinux.org>
 
 pkgname=codeberg-cli
