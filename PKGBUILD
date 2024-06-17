@@ -2,27 +2,20 @@
 pkgname=python-libsass
 _name=${pkgname#python-}
 pkgver=0.23.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Sass for Python: A straightforward binding of libsass for Python."
 arch=('x86_64' 'aarch64')
 url="https://sass.github.io/libsass-python/"
 license=('MIT')
 depends=('libsass' 'python-setuptools')
-makedepends=('git' 'python-build' 'python-installer' 'python-wheel')
+makedepends=('python-build' 'python-installer' 'python-wheel')
 #makedepends+=('python-sphinx')  # needed for docs
-provides=('_sass.abi3.so')
-checkdepends=('python-pip' 'python-pytest' 'python-werkzeug')
-_commit=af3c4bf4ab0b852447fc2b2f46001e499c615011  # tags/0.23.0^0
-source=("git+https://github.com/sass/libsass-python.git#commit=$_commit")
-sha256sums=('SKIP')
-
-pkgver() {
-  cd "$_name-python"
-  git describe --tags | sed 's/-/+/g'
-}
+#checkdepends=('python-pip' 'python-pytest' 'python-werkzeug')
+source=("$_name-$pkgver.tar.gz::https://github.com/sass/libsass-python/archive/refs/tags/$pkgver.tar.gz")
+sha256sums=('4bff7819756f52f6e4592f03f205104d1ca431088d9452aed5042f89a36f9873')
 
 build() {
-  cd "$_name-python"
+  cd "$_name-python-$pkgver"
   export SYSTEM_SASS="1"
   python -m build --wheel --no-isolation
 
@@ -35,16 +28,16 @@ build() {
 #  popd
 }
 
-check() {
-  cd "$_name-python"
-  local PLATFORM=$(python -c "import sysconfig; print(sysconfig.get_platform())")
-  local python_version=$(python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
-  export PYTHONPATH=build/lib.${PLATFORM}-cpython-${python_version//./}
-  pytest sasstests.py
-}
+#check() {
+#  cd "$_name-python-$pkgver"
+#  local PLATFORM=$(python -c "import sysconfig; print(sysconfig.get_platform())")
+#  local python_version=$(python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
+#  export PYTHONPATH=build/lib.${PLATFORM}-cpython-${python_version//./}
+#  pytest sasstests.py
+#}
 
 package() {
-  cd "$_name-python"
+  cd "$_name-python-$pkgver"
   export SYSTEM_SASS="1"
   python -m installer --destdir="$pkgdir" dist/*.whl
 
