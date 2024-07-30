@@ -10,6 +10,7 @@ url='https://codeberg.org/Aviac/codeberg-cli'
 license=('AGPL3')
 depends=('gcc-libs' 'openssl')
 makedepends=('cargo')
+options=('!lto')
 source=("$pkgname-$pkgver.tar.gz::https://static.crates.io/crates/$pkgname/$pkgname-$pkgver.crate")
 sha256sums=('e1ebb9a06dd72a5ce955b199bbf0d38c117ac56c5ced63695f661f4f6811f1d5')
 
