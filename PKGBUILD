@@ -2,7 +2,7 @@
 # Maintainer: George Rawlinson <grawlinson@archlinux.org>
 
 pkgname=codeberg-cli
-pkgver=0.4.6
+pkgver=0.4.7
 pkgrel=1
 pkgdesc='CLI Tool for Codeberg similar to gh and glab'
 arch=('x86_64')
@@ -12,7 +12,7 @@ depends=('gcc-libs' 'openssl')
 makedepends=('cargo')
 options=('!lto')
 source=("$pkgname-$pkgver.tar.gz::https://static.crates.io/crates/$pkgname/$pkgname-$pkgver.crate")
-sha256sums=('e95c41ffd5cb6566a2daefbc4a2c391b9daee5d9c0df5b1e7105c55a72e43356')
+sha256sums=('c92502498a4af4839886e4e8d9499fd0c62467bc70de60a7537ae779e78c38c7')
 
 prepare() {
   cd "$srcdir/$pkgname-$pkgver"
