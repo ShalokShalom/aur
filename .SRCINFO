@@ -1,6 +1,6 @@
 pkgbase = codeberg-cli
 	pkgdesc = CLI Tool for Codeberg similar to gh and glab
-	pkgver = 0.4.9
+	pkgver = 0.4.11
 	pkgrel = 1
 	url = https://codeberg.org/Aviac/codeberg-cli
 	arch = x86_64
@@ -9,7 +9,7 @@ pkgbase = codeberg-cli
 	depends = gcc-libs
 	depends = openssl
 	options = !lto
-	source = codeberg-cli-0.4.9.tar.gz::https://static.crates.io/crates/codeberg-cli/codeberg-cli-0.4.9.crate
-	sha256sums = fc7de05901b7b1fe8699e32669f5e837d83b250bfc2da7d77dec2268cb97062c
+	source = codeberg-cli-0.4.11.tar.gz::https://static.crates.io/crates/codeberg-cli/codeberg-cli-0.4.11.crate
+	sha256sums = 204bf46aabeb6221cd628d009b8123f04a089c0431f6dff150b249a1768a17d0
 
 pkgname = codeberg-cli
